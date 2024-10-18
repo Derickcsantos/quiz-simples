@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Classificação do Quiz</title>
+</head>
+<body>
+    <div class="app">
+        <h1>Classificação</h1>
+        <table id="tabelaClassificacao">
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>Nome</th>
+                    <th>Acertos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Os dados serão inseridos aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const request = indexedDB.open("quizDB", 1);
+
+        request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            const objectStore = db.createObjectStore("scores", { keyPath: "id", autoIncrement: true });
+            objectStore.createIndex("nome", "nome", { unique: false });
+            objectStore.createIndex("acertos", "acertos", { unique: false });
+        };
+
+        request.onsuccess = (event) => {
+            const db = event.target.result;
+            carregarClassificacao(db);
+        };
+
+        request.onerror = (event) => {
+            console.error("Erro ao abrir IndexedDB:", event.target.error);
+        };
+
+        function carregarClassificacao(db) {
+            const transaction = db.transaction("scores", "readonly");
+            const objectStore = transaction.objectStore("scores");
+            const request = objectStore.getAll();
+
+            request.onsuccess = (event) => {
+                const data = event.target.result;
+                const tabela = document.getElementById("tabelaClassificacao").querySelector("tbody");
+                data.forEach((item, index) => {
+                    const linha = document.createElement("tr");
+                    linha.innerHTML = `<td>${index + 1}</td><td>${item.nome}</td><td>${item.acertos}</td>`;
+                    tabela.appendChild(linha);
+                });
+            };
+
+            request.onerror = (event) => {
+                console.error("Erro ao carregar a classificação:", event.target.error);
+            };
+        }
+
+        function adicionarScore(nome, acertos) {
+            const transaction = db.transaction("scores", "readwrite");
+            const objectStore = transaction.objectStore("scores");
+            const score = { nome: nome, acertos: acertos };
+
+            const request = objectStore.add(score);
+            request.onsuccess = () => {
+                console.log("Score adicionado com sucesso");
+                carregarClassificacao(db);
+            };
+
+            request.onerror = (event) => {
+                console.error("Erro ao adicionar o score:", event.target.error);
+            };
+        }
+
+        // adicionarScore("João", 10);
+    </script>
+</body>
+</html>

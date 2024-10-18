@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/questao.css">
+    <title>Criar Perguntas do Quiz</title>
+</head>
+<body>
+
+    <div class="app">
+        <h1>Criar Perguntas</h1>
+        <form id="formPerguntas">
+            <label for="pergunta">Questão:</label>
+            <input type="text" id="pergunta" required><br>
+
+            <label for="opcao1">Resposta 1:</label>
+            <input type="text" id="opcao1" required><br>
+
+            <label for="opcao2">Resposta 2:</label>
+            <input type="text" id="opcao2" required><br>
+
+            <label for="opcao3">Resposta 3:</label>
+            <input type="text" id="opcao3" required><br>
+
+            <label for="opcao4">Resposta 4:</label>
+            <input type="text" id="opcao4" required><br>
+
+            <label for="resposta">Resposta Correta:</label>
+            <select id="resposta" required>
+                <option value="">Selecione</option>
+                <option value="0">Opção 1</option>
+                <option value="1">Opção 2</option>
+                <option value="2">Opção 3</option>
+                <option value="3">Opção 4</option>
+            </select><br>
+
+            <button type="submit">Salvar Pergunta</button>
+        </form>
+        <div class="containerPerguntas">
+            <div class="acordion">
+                <h3>Perguntas Salvas</h3>
+                <i onclick="ativarAcordion()" id="acordion" class="fa-solid fa-chevron-down seta"></i>
+            </div>
+            <ul id="listaPerguntas"></ul>
+        </div>
+        <a class="back" href="index.html">Voltar ao inicio</a>
+    </div>
+
+    <script src="js/questao.js"></script>
+
+</body>
+</html>
