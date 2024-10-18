@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.app {
+    background-color: white;
+    max-width: 600px;
+    height: auto;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 13px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #7159a1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0 10px 0;
+    height: 40px;
+}
+
+button:hover {
+    background-color: #7c55ca;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #5cb85c;
+    text-decoration: none;
+}
+
+.containerPerguntas{
+    margin: 30px 0 50px 0;
+    height: 4px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.containerPerguntas h3{
+    text-align: center;
+}
+
+.containerPerguntas ul{
+    text-align: center ;
+    color: #8a8a8a;
+    text-decoration: none;
+}
+
+/* .app .home{
+    color: fff;
+} */
+
+.acordion{
+    color: #7159a1;
+}
+
+.acordion .seta{
+    color: #7159a1;
+    justify-content: end;
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.listaPerguntas li{
+    display: none;
+}
+
+.minha-classe-li{
+    display: none;
+}
+
+.back{
+    color: #7159a1;
+    margin: 60px 0 0 0;
+    transition: 0.5s ease;
+}
+
+.back:hover{
+    text-decoration: underline;
+    font-size: 18px;
+}
