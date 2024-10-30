@@ -32,7 +32,7 @@ O projeto "Quiz" Tem como objetivo levar entreterimento ao usuario, podendo util
 Para clonar o repositório, utilize o comando:
 
 ```bash
-git clone https://github.com/derickcsantos/ConsultorDeCEP.git
+git clone https://github.com/Derickcsantos/quiz-simples.git
 ```
 
 Instalando as dependências
